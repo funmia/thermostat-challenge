@@ -65,14 +65,15 @@ describe('Thermostat', function() {
     });
 
     it('returns high energy usage when temp > 25', function (){
-      for (var i = 0; i < 6; i++) {
+      for (var i = 0; i < 7; i++) {
+        thermostat.powerSavingModeOff();
         thermostat.up();
       }
       expect(thermostat.getEnergyUsage()).toEqual('high-usage');
     });
 
-    it('returns low energy usage when temp < 18', function (){
-        for (var i = 0; i < 4; i++) {
+    it('returns low energy usage when temp is below 18', function (){
+        for (var i = 0; i < 3; i++) {
         thermostat.down();
       }
       expect(thermostat.getEnergyUsage()).toEqual('low-usage');
