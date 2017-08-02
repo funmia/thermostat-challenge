@@ -48,6 +48,11 @@ describe('Thermostat', function() {
       thermostat.powerSavingModeOn();
       expect(thermostat.maxTemperature()).toEqual(25);
       });
+
+    it('when it is off, max temp set at 32 degrees', function () {
+      thermostat.powerSavingModeOff();
+      expect(thermostat.maxTemperature()).toEqual(32);
+    });
     });
   });
 
