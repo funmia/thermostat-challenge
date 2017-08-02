@@ -19,3 +19,15 @@ h1 {
   border: 2px solid blue;
   font-size: 19px;
 }
+
+.low-usage {
+  color: green;
+}
+
+.medium-usage {
+  color: black;
+}
+
+.high-usage {
+  color: red;
+}
