@@ -9,14 +9,21 @@ Thermostat.prototype.temperature = function () {
   return this._temperature;
 };
 
-Thermostat.prototype.up = function (number) {
-  this._temperature += number;
+Thermostat.prototype.up = function () {
+  this._temperature += 1;
 };
 
-Thermostat.prototype.down = function (number) {
-  this._temperature -= number;
+Thermostat.prototype.down = function () {
+  if(this.isMinTemperature()) {
+    return;
+  }
+  this._temperature -= 1;
 };
 
 Thermostat.prototype.minTemperature = function () {
   return this._minTemperature;
+};
+
+Thermostat.prototype.isMinTemperature = function () {
+  return this.temperature === this._minTemperature;
 };
