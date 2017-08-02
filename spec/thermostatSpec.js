@@ -38,7 +38,6 @@ describe('Thermostat', function() {
     });
 
   describe('power saving mode', function() {
-
     it('power saving mode is on by default', function () {
       expect(thermostat.getPowerSavingMode()).toEqual(true);
       });
@@ -51,6 +50,12 @@ describe('Thermostat', function() {
       thermostat.powerSavingModeOff();
       expect(thermostat.maxTemperature()).toEqual(32);
     });
+  });
+});
+  describe('resetting the temperature', function() {
+    it('resets the temperature to 20', function (){
+      thermostat.resetTemperature();
+      expect(thermostat.temperature()).toEqual(20);
     });
   });
 
