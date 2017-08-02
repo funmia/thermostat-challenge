@@ -59,4 +59,25 @@ describe('Thermostat', function() {
     });
   });
 
+  describe('energy usage', function() {
+    it('checks current energy usage in default mode', function (){
+      expect(thermostat.getEnergyUsage()).toEqual('medium-usage');
+    });
+
+    it('returns high energy usage when temp > 25', function (){
+      for (var i = 0; i < 6; i++) {
+        thermostat.up();
+      }
+      expect(thermostat.getEnergyUsage()).toEqual('high-usage');
+    });
+
+    it('returns low energy usage when temp < 18', function (){
+        thermostat.resetTemperature();
+        for (var i = 0; i < 4; i++) {
+        thermostat.down();
+      }
+      expect(thermostat.getEnergyUsage()).toEqual('low-usage');
+    });
+  });
+
 });
