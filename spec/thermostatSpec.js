@@ -10,4 +10,13 @@ describe('default temperature', function(){
       expect(thermostat.temperature()).toEqual(20);
     });
   });
+
+
+describe('increasing temperature', function() {
+    it('can increase with Up function', function() {
+      thermostat.up(1);
+      expect(thermostat.temperature()).toEqual(21);
+    });
+  });
+  
 });
