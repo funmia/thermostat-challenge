@@ -3,8 +3,8 @@ const DEFAULTTEMPERATURE = 20;
 function Thermostat(temperature = DEFAULTTEMPERATURE) {
   this._temperature = temperature;
   this._minTemperature = 10
-  this._maxTemperature = 32
-  this._powerSavingMode = false
+  this._maxTemperature = 25
+  this._powerSavingMode = true
 }
 
 Thermostat.prototype.temperature = function () {
