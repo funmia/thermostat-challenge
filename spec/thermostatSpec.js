@@ -18,5 +18,12 @@ describe('increasing temperature', function() {
       expect(thermostat.temperature()).toEqual(21);
     });
   });
-  
+
+describe('decreasing temperature', function() {
+    it('can decrease with down function', function() {
+      thermostat.down(2);
+      expect(thermostat.temperature()).toEqual(18);
+    });
+  });
+
 });
