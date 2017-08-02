@@ -6,11 +6,13 @@ $(document).ready(function() {
   $('#temperature-up').on('click', function() {
     thermostat.up();
     $('#temperature').text(thermostat.temperature());
+    updateTemperature();
   });
 
   $('#temperature-down').on('click',function() {
     thermostat.down();
     $('#temperature').text(thermostat.temperature());
+    updateTemperature();
   });
 
   $('#temperature-reset').on('click', function(){
@@ -27,5 +29,9 @@ $(document).ready(function() {
     thermostat.powerSavingModeOn();
     $('#power-saving-status').text('on');
   });
+
+  function updateTemperature() {
+    $('#temperature').attr('class', thermostat.getEnergyUsage());
+  };
 
 });
