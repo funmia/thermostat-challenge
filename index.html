@@ -3,31 +3,27 @@
 <head>
   <meta charset="utf-8">
   <link href="style.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P|Raleway">
   <title>Thermostat</title>
 </head>
 <body>
   <h1>Thermostat</h1>
 
-<div class="temperature">
-<p id="temperature"> Current temperature: 20</p>
-</div>
+<section>
+  <h1 id="temperature"> Current temperature: 20</h1>
 
-<div class="energy-usage">
-<p id="energy-usage"> Current Energy Usage: medium-usage </p>
-</div>
+  <p>
+    <p>Adjust temperature</p>
+    <button type="button" class="button button-up" id="temperature-up">+</button>
+    <button type="button" class="button button-down" id="temperature-down">-</button>
+    <button id="temperature-reset">reset</button>
+    power saving mode is <span id="power-saving-status">on</span>
+    <button type="button" class="button psm-on" id="powersaving-on">On</button>
+    <button type="button" class="button psm-off" id="powersaving-off">Off</button>
+  </p>
+</section>
 
-<div class="temperature-buttons">
-  <p>Adjust temperature:</p>
-<button type="button" id="up">+</button>
-<button type="button" id="down">-</button>
-</div>
-
-<div class="power-saving-mode">
-  <p>Select Power Saving Mode</p>
-<button type="button" id="psm-on">On</button>
-<button type="button" id="psm-off">Off</button>
-</div>
-
-  <script src="src/thermostat.js"></script>
+<script src="src/thermostat.js"></script>
 
 </body>
