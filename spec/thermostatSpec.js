@@ -55,7 +55,7 @@ describe('Thermostat', function() {
   describe('resetting the temperature', function() {
     it('resets the temperature to 20', function (){
       thermostat.resetTemperature();
-      expect(thermostat.temperature()).toEqual(20);
+      expect(thermostat.temperature()).toEqual(thermostat.DEFAULTTEMPERATURE);
     });
   });
 
@@ -72,7 +72,6 @@ describe('Thermostat', function() {
     });
 
     it('returns low energy usage when temp < 18', function (){
-        thermostat.resetTemperature();
         for (var i = 0; i < 4; i++) {
         thermostat.down();
       }
