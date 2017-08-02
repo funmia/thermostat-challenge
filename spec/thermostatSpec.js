@@ -26,4 +26,14 @@ describe('decreasing temperature', function() {
     });
   });
 
+describe('minimum temperature', function() {
+  it('is set to 10 degrees', function() {
+    expect(thermostat.minTemperature()).toEqual(10);
+    });
+  });
+
+  it('does not allow temp to be lowered beyond minimum', function () {
+    thermostat.down(10);
+    expect(thermostat.down(1)).toThrowError('Minimum Temperature is 10 Degrees')
+  });
 });
