@@ -1,19 +1,20 @@
 $(document).ready(function(){
   var thermostat = new Thermostat();
 
-  $('#temperature').text(thermostat.temperature());
+  $('#temperature').text(getThermostatTemperature());
 
   $('#temperature-up').on('click', function() {
     thermostat.up();
     $('#temperature').text(thermostat.temperature());
     updateTemperature();
-    
+    storeThermostatTemperature();
   });
 
   $('#temperature-down').on('click',function() {
     thermostat.down();
     $('#temperature').text(thermostat.temperature());
     updateTemperature();
+    storeThermostatTemperature();
   });
 
   $('#temperature-reset').on('click', function(){
@@ -48,5 +49,20 @@ $(document).ready(function(){
     $.get(url + token + units,function(data){
       $('#current-temperature').text(data.main.temp);
     });
+    storeCityData(city);
   };
+
+  function storeThermostatTemperature() {
+    $.post("http://localhost:4567/temperature", { current_temperature: thermostat.temperature()});
+  }
+
+  function getThermostatTemperature() {
+    $.get("http://localhost:4567/temperature", function(resp){
+      $('#temperature').text(resp.current_temperature);
+    });
+  }
+
+  function storeCityData(city) {
+    $.post("http://localhost:4567/city", { current_city: city });
+  }
 });
