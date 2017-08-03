@@ -7,6 +7,7 @@ $(document).ready(function(){
     thermostat.up();
     $('#temperature').text(thermostat.temperature());
     updateTemperature();
+    
   });
 
   $('#temperature-down').on('click',function() {
